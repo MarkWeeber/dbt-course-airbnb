@@ -1,0 +1,64 @@
+version: 4
+
+models:
+  - name: dim_listings_cleansed
+    data_tests:
+      - test_minimum_row_count:
+          arguments:
+            min_row_count: 100000
+          # if we don't want the whole pipeline stop when this specific test fails
+          # we can add severity: warn, then the console log will just show warning
+          #severity: warn
+    columns:
+    - name: listing_id
+      data_tests:
+        - unique
+        - not_null
+    - name: host_id
+      data_tests:
+        - not_null
+        - relationships:
+            arguments:
+              to: ref('dim_hosts_cleansed')
+              field: host_id
+    - name: room_type
+      data_tests:
+        - accepted_values:
+            values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+    - name: minimum_nights
+      data_tests:
+      - test_positive_values
+    
+  - name: dim_hosts_cleansed
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: host_id
+        data_type: integer
+        data_tests:
+          - unique
+          - not_null
+      - name: host_name
+        data_type: string
+        data_tests:
+          - not_null
+      - name: is_superhost
+        data_type: string
+        data_tests:
+          - accepted_values:
+              values: ['t', 'f']
+      - name: updated_at
+        data_type: timestamp
+      - name: created_at
+        data_type: timestamp
+  
+  - name: fct_reviews
+    columns:
+      - name: listing_id
+        data_tests:
+          - not_null
+      - name: review_sentiment
+        data_tests:
+          - accepted_values:
+              values: ['positive', 'neutral', 'negative']

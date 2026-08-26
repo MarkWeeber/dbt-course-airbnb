@@ -1,4 +1,5 @@
---- override dbt_project.yml config file to set the materialization as view rather than a table
+-- override dbt_project.yml config file to set the materialization as view rather than a table
+-- or vice versae
 {{
     config(
         materialized = 'view'
@@ -13,7 +14,12 @@ WITH src_hosts AS (
 SELECT
     id AS host_id,
     NVL(name, 'Anonymous') AS host_name,
-    is_superhost,
+    is_superhost, -- initial variat
+    -- variant for testing data contracts:
+	-- (CASE
+    --     WHEN is_superhost = 't' THEN true
+    --     ELSE false
+    -- END):: BOOLEAN AS is_superhost,
     created_at,
     updated_at
 FROM

@@ -1,0 +1,24 @@
+# unit test to test some hardcoded values to be working correctly
+# note: this mart mart_fullmoon_reviews in join of 2 tables:
+# fct_reviews LEFT JOIN full_moon_dates
+# so this mart collects reviews and sees IF THE NEXT DAY of a review is a full moon
+unit_tests:
+  - name: unittest_fullmoon_matcher
+    model: mart_fullmoon_reviews
+    given:
+      - input: ref('fct_reviews')
+        rows:
+          - {review_date: '2025-01-13'}
+          - {review_date: '2025-01-14'}
+          - {review_date: '2025-01-15'}
+      - input: ref('seed_full_moon_dates')
+        rows:
+          - {full_moon_date: '2025-01-14'}
+    expect:
+      rows:
+       # it should not be a full moon because we already set 2025-01-14 in unit test input as full moon
+       # the next day of 2025-01-14 is 2025-01-15
+        - {review_date: '2025-01-13', is_full_moon: "not full moon"}
+        - {review_date: '2025-01-14', is_full_moon: "not full moon"}
+      # it should be full moon because the next day of 2025-01-14 is 2025-01-15
+        - {review_date: '2025-01-15', is_full_moon: "full moon"}

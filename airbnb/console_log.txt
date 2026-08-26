@@ -1,0 +1,10 @@
+[0m13:37:31  Running with dbt=1.11.7
+[0m13:37:32  Registered adapter: snowflake=1.11.3
+[0m13:37:33  Found 8 models, 15 data tests, 1 seed, 2 snapshots, 1 sql operation, 3 sources, 526 macros, 1 unit test
+[0m13:37:33  
+[0m13:37:33  Concurrency: 1 threads (target='dev')
+[0m13:37:33  
+Compiled inline node is:
+SELECT * FROM AIRBNB.DEV.dim_listings_cleansed WHERE LISTING_NAME IS NOT NULL AND LISTING_NAME <> '' AND 
+        ROOM_TYPE IS NOT NULL AND ROOM_TYPE <> '' AND 
+        TRUE
