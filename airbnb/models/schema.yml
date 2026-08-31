@@ -69,3 +69,21 @@ models:
         data_tests:
           - accepted_values:
               values: ['positive', 'neutral', 'negative']
+
+  - name: dim_listings_w_hosts
+    tests:
+      - dbt_expectations.expect_table_row_count_to_equal_other_table:
+          compare_model: source('airbnb', 'listings') # we could define models too by ref("other_model")
+    columns:
+      - name: price
+        tests:
+          - dbt_expectations.expect_column_quantile_values_to_be_between:
+              quantile: .95
+              min_value: 50
+              max_value: 500
+          - dbt_expectations.expect_column_max_to_be_between:
+              min_value: 3000
+              max_value: 8000
+              severity: warn
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: number
