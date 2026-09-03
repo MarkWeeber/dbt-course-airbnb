@@ -40,6 +40,10 @@ on-run-start: # create a table if not exists
 
 models:
   airbnb:
+    # +packages:
+    #   - pandas
+    #   - holidays
+    #   - pyarrow
     +grants:  # managing permissions for each created model
       select: ["transform", "reporter"] # graning select permission for given roles in data warehouse
     +post-hook: # a post hook is run after each model creation
@@ -49,6 +53,8 @@ models:
       +materialized: table # explicitly sets all inside dim folder to be materialized as tables
     src:
       +materialized: ephemeral # explicitly sets all inside src folder to be ephemeral, just creates CTEs and no Views or Tables
+    fct:
+      +tags: ['fact'] # all models under fct folder are now tagged with 'fact' tag
 
 data_tests:
   +store_failures: true

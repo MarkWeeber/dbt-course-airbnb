@@ -1,19 +1,30 @@
-[0m11:14:07  Running with dbt=1.11.7
-[0m11:14:07  Registered adapter: snowflake=1.11.3
-[0m11:14:08  Encountered an error:
-Parsing Error
-  Error reading airbnb: sources.yml - Runtime Error
-    Syntax error near line 12
-    ------------------------------
-    9  |             tests:
-    10 |               - dbt_expectations.expect_column_distinct_count_to_equal:
-    11 |                   value: 4
-    12 |           - name: price:
-    13 |             tests:
-    14 |               - dbt_expectations.expect_column_values_to_match_regex:
-    15 |                   regex: "^\\$[0-9][0-9\\.]+$"
-    
-    Raw Error:
-    ------------------------------
-    mapping values are not allowed in this context
-      in "<unicode string>", line 12, column 24
+[0m12:44:25  Running with dbt=1.11.7
+[0m12:44:26  Registered adapter: snowflake=1.11.3
+[0m12:44:27  Unable to do partial parsing because a project config has changed
+[0m12:44:29  [[33mWARNING[0m][MissingArgumentsPropertyInGenericTestDeprecation]: Deprecated
+functionality
+Found top-level arguments to test `accepted_values` defined on
+'dim_listings_cleansed' in package 'airbnb' (models/schema.yml). Arguments to
+generic tests should be nested under the `arguments` property.
+[0m12:44:29  Found 11 models, 1 analysis, 21 data tests, 1 seed, 1 operation, 2 snapshots, 3 sources, 1 exposure, 964 macros, 1 unit test
+[0m12:44:29  
+[0m12:44:29  Concurrency: 1 threads (target='dev')
+[0m12:44:29  
+[0m12:44:31  1 of 1 START hook: airbnb.on-run-start.0 ....................................... [RUN]
+[0m12:44:32  1 of 1 OK hook: airbnb.on-run-start.0 .......................................... [[32mOK[0m in 0.73s]
+[0m12:44:32  
+[0m12:44:32  1 of 1 START python table model DEV.dim_fullmoon ............................... [RUN]
+[0m12:45:20  1 of 1 OK created python table model DEV.dim_fullmoon .......................... [[32mSUCCESS 1[0m in 48.28s]
+[0m12:45:21  
+[0m12:45:21  Finished running 1 project hook, 1 table model in 0 hours 0 minutes and 52.01 seconds (52.01s).
+[0m12:45:21  
+[0m12:45:21  [32mCompleted successfully[0m
+[0m12:45:21  
+[0m12:45:21  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=2
+[0m12:45:21  [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingArgumentsPropertyInGenericTestDeprecation: 9 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
