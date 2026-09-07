@@ -1,9 +1,15 @@
 {{
-    config(
-    materialized = 'table',
+  config(
+    materialized = 'incremental',
+    incremental_strategy='microbatch',
+    event_time='review_date',
+    begin='2009-06-20',
+    batch_size='year',
+    full_refresh = false,
     tags = ['fact']
-    )
+  )
 }}
+
 
 WITH fct_reviews AS (
     SELECT * FROM {{ ref('fct_reviews') }}

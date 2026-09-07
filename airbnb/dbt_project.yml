@@ -59,3 +59,6 @@ models:
 data_tests:
   +store_failures: true
   +schema: _test_failures
+
+vars:
+  dbt_variable: this_dbt_is_running
