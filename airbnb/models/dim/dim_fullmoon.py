@@ -15,7 +15,8 @@ def model(dbt, session):
     dbt.config(
         materialized = "table",
         # specifically tell data warehouse to install 'holidays' package
-        packages = ["holidays", "pandas", "pyarrow"] 
+        packages = ["holidays", "pandas", "pyarrow"],
+        enabled = False
     )
 
     # getting the reference to seed

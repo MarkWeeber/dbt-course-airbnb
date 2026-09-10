@@ -1,5 +1,115 @@
-[0m09:03:55  Running with dbt=1.11.7
-[0m09:03:56  Registered adapter: snowflake=1.11.3
-[0m09:03:57  Found 10 models, 1 analysis, 21 data tests, 1 seed, 1 operation, 2 snapshots, 3 sources, 1 exposure, 965 macros, 1 unit test
-[0m09:03:57  Jinja VAR: This is Jinja variable 
-[0m09:03:57  dbt VAR: no variable is set
+[0m08:09:08  Running with dbt=1.11.7
+[0m08:09:09  Registered adapter: snowflake=1.11.3
+[0m08:09:10  Found 10 models, 1 analysis, 24 data tests, 1 seed, 1 operation, 2 snapshots, 3 sources, 1 exposure, 966 macros, 1 unit test
+[0m08:09:10  
+[0m08:09:10  Concurrency: 1 threads (target='production')
+[0m08:09:10  
+[0m08:09:13  1 of 1 START hook: airbnb.on-run-start.0 ....................................... [RUN]
+[0m08:09:14  1 of 1 OK hook: airbnb.on-run-start.0 .......................................... [[32mOK[0m in 0.79s]
+[0m08:09:14  
+[0m08:09:14  1 of 38 START seed file PRODUCTION.seed_full_moon_dates ........................ [RUN]
+[0m08:09:15  1 of 38 OK loaded seed file PRODUCTION.seed_full_moon_dates .................... [[32mINSERT 272[0m in 1.37s]
+[0m08:09:15  2 of 38 START snapshot PRODUCTION.scd_raw_hosts ................................ [RUN]
+[0m08:09:16  2 of 38 OK snapshotted PRODUCTION.scd_raw_hosts ................................ [[32mSUCCESS 1[0m in 1.20s]
+[0m08:09:16  3 of 38 START test dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4  [RUN]
+[0m08:09:18  3 of 38 FAIL 1 dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4  [[31mFAIL 1[0m in 1.35s]
+[0m08:09:18  4 of 38 START test dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_  [RUN]
+[0m08:09:19  4 of 38 PASS dbt_expectations_source_expect_column_values_to_match_regex_airbnb_listings_price___0_9_0_9_  [[32mPASS[0m in 0.90s]
+[0m08:09:19  5 of 38 START sql view model PRODUCTION.dim_hosts_cleansed_v1 .................. [RUN]
+[0m08:09:20  5 of 38 OK created sql view model PRODUCTION.dim_hosts_cleansed_v1 ............. [[32mSUCCESS 1[0m in 1.51s]
+[0m08:09:20  6 of 38 START sql view model PRODUCTION.dim_hosts_cleansed_v2 .................. [RUN]
+[0m08:09:23  6 of 38 OK created sql view model PRODUCTION.dim_hosts_cleansed_v2 ............. [[32mSUCCESS 1[0m in 2.81s]
+[0m08:09:23  7 of 38 START sql incremental model PRODUCTION.fct_reviews ..................... [RUN]
+[0m08:09:25  7 of 38 OK created sql incremental model PRODUCTION.fct_reviews ................ [[32mSUCCESS 1[0m in 2.13s]
+[0m08:09:25  8 of 38 SKIP relation PRODUCTION.scd_raw_listings .............................. [[33mSKIP[0m]
+[0m08:09:25  9 of 38 START test accepted_values_dim_hosts_cleansed_v1_is_superhost__t__f .... [RUN]
+[0m08:09:27  9 of 38 PASS accepted_values_dim_hosts_cleansed_v1_is_superhost__t__f .......... [[32mPASS[0m in 1.69s]
+[0m08:09:27  10 of 38 START test not_null_dim_hosts_cleansed_v1_host_id ..................... [RUN]
+[0m08:09:28  10 of 38 PASS not_null_dim_hosts_cleansed_v1_host_id ........................... [[32mPASS[0m in 1.11s]
+[0m08:09:28  11 of 38 START test not_null_dim_hosts_cleansed_v1_host_name ................... [RUN]
+[0m08:09:29  11 of 38 PASS not_null_dim_hosts_cleansed_v1_host_name ......................... [[32mPASS[0m in 1.34s]
+[0m08:09:29  12 of 38 START test unique_dim_hosts_cleansed_v1_host_id ....................... [RUN]
+[0m08:09:31  12 of 38 PASS unique_dim_hosts_cleansed_v1_host_id ............................. [[32mPASS[0m in 1.88s]
+[0m08:09:31  13 of 38 START test accepted_values_dim_hosts_cleansed_v2_is_superhost__t__f ... [RUN]
+[0m08:09:33  13 of 38 PASS accepted_values_dim_hosts_cleansed_v2_is_superhost__t__f ......... [[32mPASS[0m in 1.72s]
+[0m08:09:33  14 of 38 START test not_null_dim_hosts_cleansed_v2_host_id ..................... [RUN]
+[0m08:09:34  14 of 38 PASS not_null_dim_hosts_cleansed_v2_host_id ........................... [[32mPASS[0m in 1.15s]
+[0m08:09:34  15 of 38 START test unique_dim_hosts_cleansed_v2_host_id ....................... [RUN]
+[0m08:09:35  15 of 38 PASS unique_dim_hosts_cleansed_v2_host_id ............................. [[32mPASS[0m in 1.05s]
+[0m08:09:35  16 of 38 START test accepted_values_fct_reviews_review_sentiment__positive__neutral__negative  [RUN]
+[0m08:09:36  16 of 38 PASS accepted_values_fct_reviews_review_sentiment__positive__neutral__negative  [[32mPASS[0m in 1.50s]
+[0m08:09:36  17 of 38 START test not_null_fct_reviews_listing_id ............................ [RUN]
+[0m08:09:38  17 of 38 PASS not_null_fct_reviews_listing_id .................................. [[32mPASS[0m in 1.81s]
+[0m08:09:38  18 of 38 SKIP relation PRODUCTION.dim_listings_cleansed due to ephemeral model status 'skipped'  [[31mERROR SKIP[0m]
+[0m08:09:38  19 of 38 START unit_test mart_fullmoon_reviews::unittest_fullmoon_matcher ...... [RUN]
+[0m08:09:41  19 of 38 PASS mart_fullmoon_reviews::unittest_fullmoon_matcher ................. [[32mPASS[0m in 2.79s]
+[0m08:09:41  29 of 38 START sql microbatch model MART.mart_fullmoon_reviews ................. [RUN]
+[0m08:09:41  Batch 1 of 18 START batch 2009 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:42  Batch 1 of 18 OK created batch 2009 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 1[0m in 1.37s]
+[0m08:09:42  Batch 2 of 18 START batch 2010 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:44  Batch 2 of 18 OK created batch 2010 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.91s]
+[0m08:09:44  Batch 3 of 18 START batch 2011 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:46  Batch 3 of 18 OK created batch 2011 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.84s]
+[0m08:09:46  Batch 4 of 18 START batch 2012 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:48  Batch 4 of 18 OK created batch 2012 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.72s]
+[0m08:09:48  Batch 5 of 18 START batch 2013 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:50  Batch 5 of 18 OK created batch 2013 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.80s]
+[0m08:09:50  Batch 6 of 18 START batch 2014 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:51  Batch 6 of 18 OK created batch 2014 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.76s]
+[0m08:09:51  Batch 7 of 18 START batch 2015 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:53  Batch 7 of 18 OK created batch 2015 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.82s]
+[0m08:09:53  Batch 8 of 18 START batch 2016 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:55  Batch 8 of 18 OK created batch 2016 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.89s]
+[0m08:09:55  Batch 9 of 18 START batch 2017 of MART.mart_fullmoon_reviews ......................... [RUN]
+[0m08:09:57  Batch 9 of 18 OK created batch 2017 of MART.mart_fullmoon_reviews .................... [[32mSUCCESS 0[0m in 1.69s]
+[0m08:09:57  Batch 10 of 18 START batch 2018 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:09:59  Batch 10 of 18 OK created batch 2018 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 2.12s]
+[0m08:09:59  Batch 11 of 18 START batch 2019 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:01  Batch 11 of 18 OK created batch 2019 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 1.67s]
+[0m08:10:01  Batch 12 of 18 START batch 2020 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:03  Batch 12 of 18 OK created batch 2020 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 1.89s]
+[0m08:10:03  Batch 13 of 18 START batch 2021 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:04  Batch 13 of 18 OK created batch 2021 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 1.68s]
+[0m08:10:04  Batch 14 of 18 START batch 2022 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:06  Batch 14 of 18 OK created batch 2022 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 1.68s]
+[0m08:10:06  Batch 15 of 18 START batch 2023 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:08  Batch 15 of 18 OK created batch 2023 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 2.16s]
+[0m08:10:08  Batch 16 of 18 START batch 2024 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:10  Batch 16 of 18 OK created batch 2024 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 1.79s]
+[0m08:10:10  Batch 17 of 18 START batch 2025 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:12  Batch 17 of 18 OK created batch 2025 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 1.72s]
+[0m08:10:12  Batch 18 of 18 START batch 2026 of MART.mart_fullmoon_reviews ........................ [RUN]
+[0m08:10:15  Batch 18 of 18 OK created batch 2026 of MART.mart_fullmoon_reviews ................... [[32mSUCCESS 0[0m in 3.04s]
+[0m08:10:16  29 of 38 OK created sql microbatch model MART.mart_fullmoon_reviews ............ [[32mSUCCESS[0m in 33.62s]
+[0m08:10:16  20 of 38 SKIP test accepted_values_dim_listings_cleansed_room_type__Entire_home_apt__Private_room__Shared_room__Hotel_room  [[33mSKIP[0m]
+[0m08:10:16  21 of 38 SKIP test consistent_created_at ....................................... [[33mSKIP[0m]
+[0m08:10:16  22 of 38 SKIP test dim_listings_minimum_nights ................................. [[33mSKIP[0m]
+[0m08:10:16  23 of 38 SKIP test not_null_dim_listings_cleansed_host_id ...................... [[33mSKIP[0m]
+[0m08:10:16  24 of 38 SKIP test not_null_dim_listings_cleansed_listing_id ................... [[33mSKIP[0m]
+[0m08:10:16  25 of 38 SKIP test relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_  [[33mSKIP[0m]
+[0m08:10:16  26 of 38 SKIP test test_minimum_row_count_dim_listings_cleansed_100000 ......... [[33mSKIP[0m]
+[0m08:10:16  27 of 38 SKIP test test_positive_values_dim_listings_cleansed_minimum_nights ... [[33mSKIP[0m]
+[0m08:10:16  28 of 38 SKIP test unique_dim_listings_cleansed_listing_id ..................... [[33mSKIP[0m]
+[0m08:10:16  30 of 38 NO-OP exposure executive_dashboard .................................... [[33mNO-OP[0m in 0.00s]
+[0m08:10:16  31 of 38 SKIP relation PRODUCTION.dim_listings_w_hosts ......................... [[33mSKIP[0m]
+[0m08:10:16  32 of 38 SKIP relation PRODUCTION.dim_long_term_listings ....................... [[33mSKIP[0m]
+[0m08:10:16  33 of 38 SKIP test dbt_expectations_expect_column_max_to_be_between_dim_listings_w_hosts_price__8000__3000  [[33mSKIP[0m]
+[0m08:10:16  34 of 38 SKIP test dbt_expectations_expect_column_quantile_values_to_be_between_dim_listings_w_hosts_price__500__50__0_95  [[33mSKIP[0m]
+[0m08:10:16  35 of 38 SKIP test dbt_expectations_expect_column_values_to_be_of_type_dim_listings_w_hosts_price__number  [[33mSKIP[0m]
+[0m08:10:16  36 of 38 SKIP test dbt_expectations_expect_table_row_count_to_equal_other_table_dim_listings_w_hosts_source_airbnb_listings_  [[33mSKIP[0m]
+[0m08:10:17  
+[0m08:10:17  Finished running 1 exposure, 2 incremental models, 1 project hook, 1 seed, 2 snapshots, 2 table models, 24 data tests, 1 unit test, 3 view models in 0 hours 1 minutes and 6.82 seconds (66.82s).
+[0m08:10:17  
+[0m08:10:17  [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[0m08:10:17  
+[0m08:10:17  [31mFailure in test dbt_expectations_source_expect_column_distinct_count_to_equal_airbnb_listings_room_type__4 (models/sources.yml)[0m
+[0m08:10:17    Got 1 result, configured to fail if != 0
+[0m08:10:17  
+[0m08:10:17    compiled code at target/compiled/airbnb/models/sources.yml/dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5.sql
+[0m08:10:17  
+[0m08:10:17    See test failures:
+  ---------------------------------------------------------------------------------------------------
+  select * from AIRBNB._TEST_FAILURES.dbt_expectations_source_expect_d9770018e28873e7be74335902d9e4e5
+  ---------------------------------------------------------------------------------------------------
+[0m08:10:17  
+[0m08:10:17  Done. PASS=18 WARN=0 ERROR=1 SKIP=17 NO-OP=1 TOTAL=37
