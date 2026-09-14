@@ -1,0 +1,50 @@
+airbnb:
+  outputs:
+
+  # PRODUCTION
+    production:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT')}}"
+      user: "{{ env_var('DBT_USER')}}"
+
+      role: TRANSFORM
+      private_key: "{{ env_var('DBT_PRIVATE_KEY')}}"
+      private_key_passphrase: "{{ env_var('DBT_PASSPHRASE')}}"
+
+      database: AIRBNB
+      schema: PRODUCTION
+      threads: 1
+      warehouse: COMPUTE_WH
+
+  # STAGING
+    staging:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT')}}"
+      user: "{{ env_var('DBT_USER')}}"
+
+      role: TRANSFORM
+      private_key: "{{ env_var('DBT_PRIVATE_KEY')}}"
+      private_key_passphrase: "{{ env_var('DBT_PASSPHRASE')}}"
+
+      database: AIRBNB
+      schema: STAGING
+      threads: 1
+      warehouse: COMPUTE_WH
+
+  # DEV
+    dev:
+      type: snowflake
+      account: "{{ env_var('DBT_ACCOUNT')}}"
+      user: "{{ env_var('DBT_USER')}}"
+
+      role: TRANSFORM
+      private_key: "{{ env_var('DBT_PRIVATE_KEY')}}"
+      private_key_passphrase: "{{ env_var('DBT_PASSPHRASE')}}"
+
+      database: AIRBNB
+      schema: "DBT_{{ env_var('DBT_ENV_NAME') | upper | trim }}"
+      threads: 1
+      warehouse: COMPUTE_WH
+  
+  # default target, it can be always overriden on console by --target
+  target: dev
