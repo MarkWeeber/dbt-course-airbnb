@@ -1,1 +1,10 @@
-profiles.yml
+# any target folders
+airbnb/target*/
+# any logs
+logs/
+# any packages
+airbnb/package-lock.yml
+airbnb/dbt_packages/
+airbnb/dbt_internal_packages/
+# virtual environment
+.env
