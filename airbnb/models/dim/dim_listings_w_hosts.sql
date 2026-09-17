@@ -13,12 +13,12 @@ h AS (
 SELECT
     l.listing_id,
     l.listing_name,
-    l.room_type,
+    l.room_type AS ROOM_CLASS,
     l.minimum_nights,
     l.price,
     l.host_id,
     h.host_name,
-    h.is_superhost as host_is_superhost,
+    h.is_superhost as HOST_IS_MAIN,
     l.created_at,
     GREATEST(l.updated_at, h.updated_at) as updated_at
 FROM l
