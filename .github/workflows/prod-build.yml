@@ -14,7 +14,8 @@ jobs:
     name: Production deps and build
     runs-on: ubuntu-latest
     env:
-      SNOWFLAKE_ACCOUNT:      "${{ secrets.SNOWFLAKE_ACCOUNT }}"
+      #SNOWFLAKE_ACCOUNT:      "${{ secrets.SNOWFLAKE_ACCOUNT }}"
+      DBT_ACCOUNT:      "${{ secrets.SNOWFLAKE_ACCOUNT }}"
       DBT_USER:               "${{ secrets.DBT_USER }}"
       PRIVATE_KEY: |
         ${{ secrets.PRIVATE_KEY }}

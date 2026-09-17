@@ -15,7 +15,8 @@ jobs:
       github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     env:
-      SNOWFLAKE_ACCOUNT:      "${{ secrets.SNOWFLAKE_ACCOUNT }}"
+      #SNOWFLAKE_ACCOUNT:      "${{ secrets.SNOWFLAKE_ACCOUNT }}"
+      DBT_ACCOUNT:      "${{ secrets.SNOWFLAKE_ACCOUNT }}"
       DBT_USER:               "${{ secrets.DBT_USER }}"
       PRIVATE_KEY: |
         ${{ secrets.PRIVATE_KEY }}

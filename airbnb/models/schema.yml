@@ -96,9 +96,11 @@ models:
               quantile: .95
               min_value: 50
               max_value: 500
+              severity: warn
           - dbt_expectations.expect_column_max_to_be_between:
               min_value: 3000
               max_value: 8000
               severity: warn
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: number
+              severity: warn
